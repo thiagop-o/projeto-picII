@@ -1,14 +1,24 @@
 package br.com.commerce.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.validation.constraints.Size;
 
-public class Usuario {
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
+import br.com.olimposistema.aipa.model.Model;
+
+@Entity
+public class Usuario extends Model {
+	
+	@NotEmpty @Size(min = 3, max = 100, message = "{usuario.nome.size}")
 	private String nome;
 	
-
+	@NotEmpty @Email @Column(unique = true)
 	private String email;
 	
-
+	@NotEmpty @Size(min = 6, max = 20, message = "{usuario.senha.size}")
 	private String senha;
 	
 	public String getNome() {
