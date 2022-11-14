@@ -2,14 +2,19 @@ package br.com.commerce.controller;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
+import br.com.caelum.vraptor.validator.Validator;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.interceptor.IncludeParameters;
+import br.com.caelum.vraptor.validator.SimpleMessage;
+import br.com.commerce.dao.UsuarioDAO;
 import br.com.commerce.model.Usuario;
-import br.com.olimposistema.aipa.dao.DAO;
 
 @Controller
 @Path("cadastrar")
@@ -21,18 +26,29 @@ public class CadastrarController {
 	@Inject
 	Result result;
 	
-	@Inject
-	DAO<Usuario> usuarioDAO;
+	@Inject 
+	UsuarioDAO usuarioDao;
+	
+	@Inject 
+	Validator validator;
+	
+	@Inject 
+	HttpSession session;
 	
 	@Get("")
 	public void cadastrar() {
 		
 	}
 	
+	@IncludeParameters
 	@Post("salvaUsuario")
-	public void salvaUsuario(Usuario usuario) {
-		usuarioDAO.insert(usuario);
-		em.persist(usuario);
+	public void salvaUsuario(@Valid Usuario usuario, String confirmaSenha) {
+		boolean asSenhasSaoIguais = usuario.getSenha().equals(confirmaSenha);
+		validator.ensure(asSenhasSaoIguais, new SimpleMessage("erro", "A Confirmação de Senha esta diferente"));
+		validator.onErrorRedirectTo(this).cadastrar();
+		
+		usuarioDao.insert(usuario);
+		session.setAttribute("usuarioLogado", usuario);
 		result.redirectTo(ProdutosController.class).produtos();
 	}
 }

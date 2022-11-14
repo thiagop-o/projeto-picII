@@ -22,24 +22,7 @@
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="assets/img/logos/logo.png" alt="Logo" /></a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars ml-1"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav text-uppercase ml-auto">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="categorias.html">Categorias</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="produtos.html#portfolio">Produtos</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="login.html">Login</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="cadastrar.html#cadastrar">Cadastrar-se</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <tag:menu-superior></tag:menu-superior>
         <!-- Masthead-->
         <header class="masthead" id="login">
             <div class="container">
@@ -53,6 +36,15 @@
                     <h2 class="section-heading text-uppercase">Cadastre-se</h2>
                     <h3 class="section-subheading text-muted">Crie seu Cadastro Gratuitamente</h3>
                 </div>
+                
+                <c:if test="${not empty errors}">
+                	<div class="alert alert-danger" role="alert">
+                  	<c:forEach var="error" items="${errors}">
+                     ${error.message}<br/>
+                  	</c:forEach>
+                	</div>
+              	</c:if>
+                
                 <form method="post" action="<c:url value="cadastrar/salvaUsuario"/>">
                     <div class="row justify-content-md-center mb-5 text-center">
                         <div class="col-md-12 align-self-center text-center">
@@ -68,6 +60,10 @@
                                 <input name="usuario.senha" value="${ usuario.getSenha() }" minlength="6" maxlength="20" class="form-control" id="phone" type="password" placeholder="Senha *" required="required" data-validation-required-message="Insira sua senha." />
                                 <p class="help-block text-danger"></p>
                             </div>
+                            <div class="form-group input-login mx-auto">
+                                <input name="confirmaSenha" value="${ confirmaSenha }" minlength="6" maxlength="20" class="form-control" id="phone" type="password" placeholder="Confirma Senha *" required="required" data-validation-required-message="Insira sua senha." />
+                                <p class="help-block text-danger"></p>
+                            </div>
                             <button type="submit" class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#cadastrar">Cadastrar</button>
                         </div> 
                     </div>
@@ -76,23 +72,7 @@
             </div>
         </section>
     
-        <!-- Footer-->
-        <footer class="footer py-4">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-left">Copyright Â© Commerce 2021</div>
-                    <div class="col-lg-4 my-3 my-lg-0">
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <div class="col-lg-4 text-lg-right">
-                        <a class="mr-3" href="#!">Privacy Policy</a>
-                        <a href="#!">Terms of Use</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <tag:footer></tag:footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -10,15 +10,11 @@ import br.com.commerce.model.Usuario;
 import br.com.olimposistema.aipa.dao.DAO;
 
 @RequestScoped
-public class UsuarioDao extends DAO<Usuario>{
-	
-	@Deprecated 
-	public UsuarioDao() {
-		super(null,null);
-	}
+public class UsuarioDAO extends DAO<Usuario> {
+	@Deprecated public UsuarioDAO() {super(null,null);}
 	
 	@Inject
-	public UsuarioDao(EntityManager em) {
+	public UsuarioDAO(EntityManager em) {
 		super(em, Usuario.class);
 	}
 
