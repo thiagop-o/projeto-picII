@@ -36,7 +36,7 @@
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase mb-3">Categorias</h2>
                 </div>
-                <button title="Editar" onclick="window.location.href='formcategoria.html'" class="btn btn-success mb-3"  type="button">
+                <button title="Editar" onclick="window.location.href='formcategoria'" class="btn btn-success mb-3"  type="button">
                     <i class="fas fa-plus mr 1"></i> 
                     Nova Categoria  
                 </button>
@@ -45,13 +45,13 @@
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nome</th>
-                        <th scope="col">AÃ§Ãµes</th>
+                        <th scope="col">Ações</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
                         <th scope="row">1</th>
-                        <td>AcessÃ³rios</td>
+                        <td>Acessórios</td>
                         <td>
                             <button title="Editar" onclick="window.location.href='formcategoria.html'" class="btn btn-info" type="button">
                                 <i class="fas fa-edit"></i>   
@@ -75,7 +75,7 @@
                       </tr>
                       <tr>
                         <th scope="row">3</th>
-                        <td>EletrÃ´nicos</td>
+                        <td>Eletrônicos</td>
                         <td>
                             <button title="Editar" onclick="window.location.href='formcategoria.html'" class="btn btn-info"  type="button">
                                 <i class="fas fa-edit"></i>   
