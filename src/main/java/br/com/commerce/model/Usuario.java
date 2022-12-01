@@ -39,4 +39,6 @@ public class Usuario extends Model {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	
+	
 }

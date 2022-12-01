@@ -50,6 +50,8 @@ public class LoginController {
 		validator.onErrorRedirectTo(this).login();
 		
 		session.setAttribute("usuarioLogado", usuario);
-		result.redirectTo(ProdutosController.class).produtos();
+		
+		//autenticar usuario
+		result.redirectTo(ProdutosController.class).produtos(null);
 	}
 }

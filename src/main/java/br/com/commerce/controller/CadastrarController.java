@@ -43,12 +43,14 @@ public class CadastrarController {
 	@IncludeParameters
 	@Post("salvaUsuario")
 	public void salvaUsuario(@Valid Usuario usuario, String confirmaSenha) {
+		
 		boolean asSenhasSaoIguais = usuario.getSenha().equals(confirmaSenha);
 		validator.ensure(asSenhasSaoIguais, new SimpleMessage("erro", "A Confirmação de Senha esta diferente"));
 		validator.onErrorRedirectTo(this).cadastrar();
-		
+
 		usuarioDao.insert(usuario);
+		
 		session.setAttribute("usuarioLogado", usuario);
-		result.redirectTo(ProdutosController.class).produtos();
+		result.redirectTo(ProdutosController.class).produtos(null);
 	}
 }

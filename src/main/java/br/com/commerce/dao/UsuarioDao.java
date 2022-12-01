@@ -11,6 +11,7 @@ import br.com.olimposistema.aipa.dao.DAO;
 
 @RequestScoped
 public class UsuarioDAO extends DAO<Usuario> {
+
 	@Deprecated public UsuarioDAO() {super(null,null);}
 	
 	@Inject
@@ -33,4 +34,5 @@ public class UsuarioDAO extends DAO<Usuario> {
 			return null;
 		}
 	}
+
 }
