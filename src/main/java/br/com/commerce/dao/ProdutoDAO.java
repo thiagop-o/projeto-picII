@@ -33,7 +33,7 @@ public class ProdutoDAO extends DAO<Produto> {
 	  
 	  Root<Produto> r = q.from(Produto.class);  
 	  q.select(r)
-	  .orderBy(cb.desc(r.get("nome")));
+	  .orderBy(cb.asc(r.get("nome")));
 	  
 	  
 	  TypedQuery<Produto> query = em.createQuery(q);

@@ -35,6 +35,6 @@ public class ProdutosController {
 			result.include("produtos", produtoDao.filter(filtro));
 			result.include("totalProdutos", produtoDao.filterTotal(filtro));
 		}
-		else result.include("produtos", produtoDao.selectAll());
+		else result.include("produtos", produtoDao.buscaTodosOsProdutosOrdenadoPeloNome());
 	}
 }
