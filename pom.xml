@@ -89,14 +89,6 @@
     		<artifactId>jjwt</artifactId>
     		<version>0.9.0</version>
 		</dependency>
-		
-		<!-- ################# Para Testes Automatizados ################# -->
-		<dependency>
-      		<groupId>junit</groupId>
-      		<artifactId>junit</artifactId>
-      		<version>4.11</version>
-      		<scope>test</scope>
-   		</dependency>
    		
    		<!-- ################# Para Download e Upload de Files ################# -->
    		<dependency>
@@ -207,11 +199,12 @@
 		    <scope>test</scope>
 		</dependency>
 		<dependency>
-		    <groupId>org.mockito</groupId>
-		    <artifactId>mockito-core</artifactId>
-		    <version>4.9.0</version>
-		    <scope>test</scope>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>4.0.0</version>
+			<scope>test</scope>
 		</dependency>
+
 		<!-- #### fim das dependencias java9 ou superior ### -->
 	</dependencies>
 
@@ -224,8 +217,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>11</source>
+					<target>11</target>
 				</configuration>
 			</plugin>
 
